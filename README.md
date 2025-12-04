@@ -40,48 +40,18 @@ crypto-forecast-app/
 └── README.md
 ```
 
-⚙️ Kurulum ve Çalıştırma
-Projeyi çalıştırmanın en kolay yolu Docker kullanmaktır.
+## ⚙️ Kurulum ve Çalıştırma
 
-Seçenek 1: Docker ile Çalıştırma (Önerilen)
-Projeyi klonlayın:
+Projeyi çalıştırmanın en kolay yolu **Docker** kullanmaktır.
 
-Bash
+### Seçenek 1: Docker ile Çalıştırma (Önerilen)
 
-git clone [https://github.com/furkanozturk06/crypto-forecast-app.git](https://github.com/furkanozturk06/crypto-forecast-app.git)
-cd crypto-forecast-app
-Uygulamayı başlatın:
-
-Bash
-
-docker-compose up --build
-Bu komut hem client hem de server servislerini derleyip başlatacaktır.
-
-Tarayıcıdan erişin:
-
-Frontend: http://localhost:3000
-
-Backend: http://localhost:5000
-
-Seçenek 2: Manuel Kurulum
-Docker kullanmadan çalıştırmak isterseniz:
-
-Backend (Server) için:
-
-Bash
-
-cd server
-pip install -r requirements.txt
-python main.py
-Frontend (Client) için:
-
-Bash
-
-cd client
-npm install
-npm start
-
-👨‍💻 Geliştirici
+1. **Projeyi klonlayın:**
+   ```bash
+   git clone [https://github.com/furkanozturk06/crypto-forecast-app.git](https://github.com/furkanozturk06/crypto-forecast-app.git)
+   cd crypto-forecast-app
+   
+## 👨‍💻 Geliştirici
 Furkan Öztürk
 
 GitHub: @furkanozturk06
