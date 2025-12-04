@@ -1,0 +1,8 @@
+flask
+flask-cors
+flask-jwt-extended
+pymongo
+requests
+scikit-learn
+numpy
+gunicorn

@@ -1,0 +1,23 @@
+.swiper-wrapper {
+    max-width: 900px;
+}
+
+.dashboard-table-chart {
+    height: 45px !important;
+    min-height: 45px !important;
+
+    margin-top: -45px;
+}
+
+.dashboard-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 20px 0;
+}
+
+.dashboard-list-item-crypto {
+    display: flex;
+    align-items: center;
+}

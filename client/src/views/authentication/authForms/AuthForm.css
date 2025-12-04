@@ -1,0 +1,21 @@
+.submit-btn {
+    color: #FFFFFF;
+    background: #24B47E;
+}
+
+.submit-btn:hover {
+    color: #FFFFFF;
+    background-color: #24B47E !important;
+}
+
+.link-btn {
+    color: #24B47E !important;
+    font-weight: bold !important;
+    background: transparent !important;
+}
+
+.link-btn:hover {
+    color: #24B47E;
+    background: transparent;
+    font-weight: bolder;
+}
