@@ -28,4 +28,19 @@ yarn-error.log*
 .env.*
 **/.env
 **/.env.*
+
+# Ornek/sablon env dosyalari (placeholder iceren) commit edilebilir
+!.env.example
+!**/.env.example
+
+# Python virtual env
 .venv/
+venv/
+
+# Local databases / dumps
+*.sqlite
+*.sqlite3
+*.sql
+
+# MongoDB data dir
+mongo_data/

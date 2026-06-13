@@ -1,6 +1,7 @@
 import axios from 'src/utils/axios';
 import { createSlice } from '@reduxjs/toolkit';
 import { AppDispatch } from 'src/store/Store';
+import setAuthToken from 'src/utils/setAuthToken';
 
 const initialState = {
     isAuthenticated: localStorage.getItem('token') ? true : false,
@@ -14,7 +15,9 @@ export const AuthSlice = createSlice({
             if (action.payload.access_token) {
                 state.isAuthenticated = true;
 
-                localStorage.setItem('token', action.payload.access_token);
+                // Token'i sakla ve axios Authorization basligini ayarla
+                // (korumali uclar @jwt_required ile artik bunu bekliyor).
+                setAuthToken(action.payload.access_token);
             }
         },
         signup: (state, action) => {
@@ -23,7 +26,8 @@ export const AuthSlice = createSlice({
         signout: (state) => {
             state.isAuthenticated = false;
 
-            localStorage.removeItem('token');
+            // Token'i ve Authorization basligini temizle.
+            setAuthToken('');
         }
     },
 });

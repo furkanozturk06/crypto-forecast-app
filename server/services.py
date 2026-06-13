@@ -1,12 +1,27 @@
-import requests
+from urllib.parse import quote
+
 import numpy as np
+import requests
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 from datetime import datetime, timedelta
 
+from validators import validate_coin, validate_period
+
+REQUEST_TIMEOUT = 10
+
+
 def get_market_chart(coin, period):
+    # Kullanici girdisini allowlist ile dogrula ve URL-encode et (SSRF korumasi).
+    coin = validate_coin(coin)
+    period = validate_period(period)
+
     # Get OHLC data
-    response = requests.get(f'https://api.coinbase.com/v2/prices/{coin}-USD/historic?sort=rank&period={period}')
+    response = requests.get(
+        f'https://api.coinbase.com/v2/prices/{quote(coin, safe="")}-USD/historic',
+        params={'sort': 'rank', 'period': period},
+        timeout=REQUEST_TIMEOUT,
+    )
     ohlc_data = response.json()
 
     # Assuming 'ohlc_data' is a list of [time, open, high, low, close] lists
@@ -26,7 +41,7 @@ def get_market_chart(coin, period):
     X = scaler.fit_transform(X)
 
     # Train the model
-    model = LinearRegression()  
+    model = LinearRegression()
     model.fit(X, y)
 
     # Make a prediction
